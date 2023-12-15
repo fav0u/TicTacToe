@@ -1,4 +1,5 @@
 public class Player {
+
     private String name;
     private char symbol;
 
@@ -11,3 +12,5 @@ public class Player {
         return symbol;
     }
 }
+
+
