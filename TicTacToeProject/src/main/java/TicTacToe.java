@@ -29,5 +29,13 @@ public class TicTacToe {
             default -> System.out.println("Invalid move");
         }
     }
+   public int randomNumber() {
+        Random random = new Random();
+        int randFieldNr = -1;
+        do {
+            randFieldNr = random.nextInt(9) + 1;
+        } while(!checkEmptyField(randFieldNr));
+        return randFieldNr;
+    }      
 }
 
