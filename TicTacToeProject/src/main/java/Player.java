@@ -11,6 +11,10 @@ public class Player {
     public char getSymbol() {
         return symbol;
     }
+
+    public String getName() {
+        return name;
+    }
 }
 
 
