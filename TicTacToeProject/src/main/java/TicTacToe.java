@@ -36,6 +36,45 @@ public class TicTacToe {
             randFieldNr = random.nextInt(9) + 1;
         } while(!checkEmptyField(randFieldNr));
         return randFieldNr;
-    }      
+    }
+
+    public boolean isWin(char[][] board, char symbol) {
+        //Check rows
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0] == symbol && board[row][1] == symbol && board[row][2] == symbol) {
+                String winner = (symbol == player1.getSymbol()) ? player1.getName() : player2.getName();
+                System.out.println("Game is won. Player " + winner + " has won");
+                return true;
+            }
+        }
+        //CHeck columns
+        for (int col = 0; col < 3; col++) {
+            if (board[0][col] == symbol && board[1][col] == symbol && board[2][col] == symbol) {
+                String winner = (symbol == player1.getSymbol()) ? player1.getName() : player2.getName();
+                System.out.println("Game is won. Player " + winner + " has won");
+                return true;
+            }
+
+        }
+        //Check diagonals
+        if ((board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol) ||
+                (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol)) {
+            String winner = (symbol == player1.getSymbol()) ? player1.getName() : player2.getName();
+            System.out.println("Game is won. Player " + winner + " has won");
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isDraw(char[][] board) {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if(board[row][col] == ' ') return false;
+            }
+        }
+        System.out.println("Game is a draw");
+        return true;
+    }
 }
 
