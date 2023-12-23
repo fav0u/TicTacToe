@@ -28,6 +28,34 @@ public class Main {
             System.out.println("Welcome to TicTacToe Game");
             TicTacToe game = new TicTacToe(player1, player2);
 
-            
+            while (true) {
+                printBoard(game.getBoard());
+                System.out.println("Player " + game.getCurrentPlayer().getName() + " please choose a field between 1-9");
+                int fieldNr;
+                if (gameMode == 2 || game.getCurrentPlayer().equals(player1)) {
+                    fieldNr = scanner.nextInt();
+                    while (!game.checkEmptyField(fieldNr)) {
+                        System.out.println("Invalid field input");
+                        System.out.println("Player " + game.getCurrentPlayer().getName() + " please choose a field between 1-9");
+                        fieldNr = scanner.nextInt();
+                    }
+                } else {
+                    // Computer
+                    fieldNr = game.randomNumber();
+                }
+
+                game.makeMove(fieldNr);
+
+                if (checkStatus(game)) {
+                    break;
+                }
+
+                game.switchPlayer();
+            }
+
+            System.out.println("Do you want to play again? Y/N");
+            String answer = scanner.next();
+            replay = answer.equals("Y");
+        }
     }
 }
