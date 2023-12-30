@@ -26,6 +26,14 @@ public class TicTacToe {
         this.currentPlayer = player1;
 
     }
+
+    public void switchPlayer() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else currentPlayer = player1;
+    }
+
+
     public void makeMove(int fieldNr) {
         switch (fieldNr) {
             case 1 -> board[0][0] = currentPlayer.getSymbol();
