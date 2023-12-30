@@ -6,6 +6,14 @@ public class TicTacToe {
         private Player player2;
         private Player currentPlayer;
 
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public TicTacToe(Player player1, Player player2) {
         this.board = new char[3][3];
         for (int row = 0; row < 3; row++) {
