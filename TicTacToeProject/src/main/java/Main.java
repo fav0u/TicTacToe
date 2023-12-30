@@ -66,4 +66,15 @@ public class Main {
         System.out.println("---------");
         System.out.println(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
     }
+    private static boolean checkStatus(TicTacToe game) {
+        if (game.isWin(game.getBoard(), game.getCurrentPlayer().getSymbol())) {
+            printBoard(game.getBoard());
+            return true;
+        }
+        else if(game.isDraw(game.getBoard())) {
+            printBoard(game.getBoard());
+            return true;
+        }
+        return false;
+    }
 }
