@@ -1,19 +1,22 @@
+import java.util.Random;
+
 public class TicTacToe {
         private char[][] board;
         private Player player1;
         private Player player2;
         private Player currentPlayer;
 
-    public TicTacToe() {
+    public TicTacToe(Player player1, Player player2) {
         this.board = new char[3][3];
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 board[row][col] = ' ';
             }
         }
-        this.player1 = new Player("Player1", 'X');
-        this.player2 = new Player("Player2", 'O');
+        this.player1 = player1;
+        this.player2 = player2;
         this.currentPlayer = player1;
+
     }
     public void makeMove(int fieldNr) {
         switch (fieldNr) {
