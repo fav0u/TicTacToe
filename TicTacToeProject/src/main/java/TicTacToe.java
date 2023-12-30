@@ -1,20 +1,62 @@
+import java.util.Random;
+
 public class TicTacToe {
         private char[][] board;
         private Player player1;
         private Player player2;
         private Player currentPlayer;
 
-    public TicTacToe() {
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public TicTacToe(Player player1, Player player2) {
         this.board = new char[3][3];
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 board[row][col] = ' ';
             }
         }
-        this.player1 = new Player("Player1", 'X');
-        this.player2 = new Player("Player2", 'O');
+        this.player1 = player1;
+        this.player2 = player2;
         this.currentPlayer = player1;
+
     }
+
+    public void switchPlayer() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else currentPlayer = player1;
+    }
+
+    public boolean checkEmptyField(int fieldNr) {
+        switch (fieldNr) {
+            case 1:
+                return board[0][0] == ' ';
+            case 2:
+                return board[0][1] == ' ';
+            case 3:
+                return board[0][2] == ' ';
+            case 4:
+                return board[1][0] == ' ';
+            case 5:
+                return board[1][1] == ' ';
+            case 6:
+                return board[1][2] == ' ';
+            case 7:
+                return board[2][0] == ' ';
+            case 8:
+                return board[2][1] == ' ';
+            case 9:
+                return board[2][2] == ' ';
+        }
+        return false;
+    }
+
     public void makeMove(int fieldNr) {
         switch (fieldNr) {
             case 1 -> board[0][0] = currentPlayer.getSymbol();
