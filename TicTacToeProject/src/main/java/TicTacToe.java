@@ -57,7 +57,7 @@ public class TicTacToe {
         return false;
     }
 
-    public void makeMove(int fieldNr) {
+    public boolean makeMove(int fieldNr) {
         switch (fieldNr) {
             case 1 -> board[0][0] = currentPlayer.getSymbol();
             case 2 -> board[0][1] = currentPlayer.getSymbol();
@@ -68,8 +68,12 @@ public class TicTacToe {
             case 7 -> board[2][0] = currentPlayer.getSymbol();
             case 8 -> board[2][1] = currentPlayer.getSymbol();
             case 9 -> board[2][2] = currentPlayer.getSymbol();
-            default -> System.out.println("Invalid move");
+            default -> {
+                System.out.println("Invalid move");
+                return false;
+            }
         }
+        return true;
     }
    public int randomNumber() {
         Random random = new Random();
