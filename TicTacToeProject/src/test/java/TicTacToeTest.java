@@ -51,4 +51,28 @@ class TicTacToeTest {
         game.makeMove(5);
         assertFalse(game.checkEmptyField(5));
     }
+
+    @Test
+    void makeMove_moveOnValidFields() {
+
+        for(int i = 1; i < 10; i++) {
+            game.makeMove(i);
+        }
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[0][0]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[0][1]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[0][2]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[1][0]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[1][1]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[1][2]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[2][0]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[2][1]);
+        assertEquals(game.getCurrentPlayer().getSymbol(), game.getBoard()[2][2]);
+    }
+
+    @Test
+    void makeMove_moveOnInvalidField() {
+        assertFalse(game.makeMove(10));
+        assertFalse(game.makeMove(0));
+        assertFalse(game.makeMove(-1));
+    }
 }
