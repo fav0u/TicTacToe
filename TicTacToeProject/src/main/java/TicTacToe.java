@@ -10,6 +10,10 @@ public class TicTacToe {
         return board;
     }
 
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
+
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
