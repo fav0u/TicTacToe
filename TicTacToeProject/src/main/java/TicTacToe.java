@@ -82,12 +82,8 @@ public class TicTacToe {
    public int randomNumber() {
         Random random = new Random();
         int randFieldNr = -1;
-        int attempts = 0;
-        int maxAttempts = 9;
         do {
             randFieldNr = random.nextInt(9) + 1;
-            attempts++;
-            if(attempts > maxAttempts) return -1;
         } while(!checkEmptyField(randFieldNr));
         return randFieldNr;
     }

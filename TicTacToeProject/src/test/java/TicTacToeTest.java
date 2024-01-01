@@ -75,4 +75,21 @@ class TicTacToeTest {
         assertFalse(game.makeMove(0));
         assertFalse(game.makeMove(-1));
     }
+
+    @Test
+    void randomNumber_generatesNumberNine() {
+    //Arrange board
+        char[][] testBoard = {
+                {'X', 'O', 'X'},
+                {'X', 'O', 'X'},
+                {'O', 'X', ' '} // nur Feld 9 bleibt frei
+        };
+        game.setBoard(testBoard);
+        //Act
+        int randomNr = game.randomNumber();
+        //Assert
+        assertEquals(9, randomNr);
+    }
+
+
 }
