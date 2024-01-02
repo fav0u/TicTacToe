@@ -1,10 +1,10 @@
 import java.util.Random;
 
 public class TicTacToe {
-        private char[][] board;
-        private Player player1;
-        private Player player2;
-        private Player currentPlayer;
+    private char[][] board;
+    private Player player1;
+    private Player player2;
+    private Player currentPlayer;
 
     public char[][] getBoard() {
         return board;
@@ -79,7 +79,7 @@ public class TicTacToe {
         }
         return true;
     }
-   public int randomNumber() {
+    public int randomNumber() {
         Random random = new Random();
         int randFieldNr = -1;
         do {
@@ -92,7 +92,8 @@ public class TicTacToe {
         //Check rows
         for (int row = 0; row < 3; row++) {
             if (board[row][0] == symbol && board[row][1] == symbol && board[row][2] == symbol) {
-                String winner = (symbol == player1.getSymbol()) ? player1.getName() : player2.getName();
+                String winner = (symbol == player1.getSymbol()) ? player1.getName() :
+                        player2.getName();
                 System.out.println("Game is won. Player " + winner + " has won");
                 return true;
             }
@@ -100,7 +101,8 @@ public class TicTacToe {
         //CHeck columns
         for (int col = 0; col < 3; col++) {
             if (board[0][col] == symbol && board[1][col] == symbol && board[2][col] == symbol) {
-                String winner = (symbol == player1.getSymbol()) ? player1.getName() : player2.getName();
+                String winner = (symbol == player1.getSymbol()) ? player1.getName() :
+                        player2.getName();
                 System.out.println("Game is won. Player " + winner + " has won");
                 return true;
             }
