@@ -59,7 +59,7 @@ public class Main {
             replay = answer.equals("Y");
         }
     }
-    private static boolean checkStatus(TicTacToe game) {
+    protected static boolean checkStatus(TicTacToe game) {
         if (game.isWin(game.getBoard(), game.getCurrentPlayer().getSymbol())) {
             printBoard(game.getBoard());
             return true;
