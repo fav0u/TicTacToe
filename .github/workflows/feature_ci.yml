@@ -3,7 +3,8 @@ name: Test Feature Branch
 on:
   push:
     branches: [ "feature/*" ]
-
+  workflow_dispatch:
+  
 jobs:
   build:
 
@@ -20,3 +21,4 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B test --file pom.xml
+      working-directory: TicTacToeProject
