@@ -3,7 +3,8 @@ name: Test Feature Branch
 on:
   push:
     branches: [ "feature/*" ]
-
+  workflow_dispatch:
+  
 jobs:
   build:
 
