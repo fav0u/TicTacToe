@@ -12,32 +12,35 @@ public class Main {
         player1.setName(player1name);
 
         while (replay) {
-        System.out.println("Hello " + player1.getName() + ", please choose the game mode:");
-        System.out.println("Press (1) to play against the Computer, press (2) to play against another human");
-        int gameMode = scanner.nextInt();
+            System.out.println("Hello " + player1.getName() + ", please choose the game mode:");
+            System.out.println("Press (1) to play against the Computer, press (2) to play " +
+                    "against another human");
+            int gameMode = scanner.nextInt();
 
-        if (gameMode == 2) {
-            System.out.println("Hello Player 2, please enter your name");
-            String player2name = scanner.next();
-            player2.setName(player2name);
-            System.out.println("Hello " + player2.getName());
-        }
-        if (gameMode == 1) {
-            player2.setName("Computer");
-        }
+            if (gameMode == 2) {
+                System.out.println("Hello Player 2, please enter your name");
+                String player2name = scanner.next();
+                player2.setName(player2name);
+                System.out.println("Hello " + player2.getName());
+            }
+            if (gameMode == 1) {
+                player2.setName("Computer");
+            }
 
             System.out.println("Welcome to TicTacToe Game");
             TicTacToe game = new TicTacToe(player1, player2);
 
             while (true) {
                 printBoard(game.getBoard());
-                System.out.println("Player " + game.getCurrentPlayer().getName() + " please choose a field between 1-9");
+                System.out.println("Player " + game.getCurrentPlayer().getName() +
+                        " please choose a field between 1-9");
                 int fieldNr;
                 if (gameMode == 2 || game.getCurrentPlayer().equals(player1)) {
                     fieldNr = scanner.nextInt();
                     while (!game.checkEmptyField(fieldNr)) {
                         System.out.println("Invalid field input");
-                        System.out.println("Player " + game.getCurrentPlayer().getName() + " please choose a field between 1-9");
+                        System.out.println("Player " + game.getCurrentPlayer().getName() +
+                                " please choose a field between 1-9");
                         fieldNr = scanner.nextInt();
                     }
                 } else {
@@ -63,8 +66,7 @@ public class Main {
         if (game.isWin(game.getBoard(), game.getCurrentPlayer().getSymbol())) {
             printBoard(game.getBoard());
             return true;
-        }
-        else if(game.isDraw(game.getBoard())) {
+        } else if(game.isDraw(game.getBoard())) {
             printBoard(game.getBoard());
             return true;
         }
