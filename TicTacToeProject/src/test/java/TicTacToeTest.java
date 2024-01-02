@@ -123,5 +123,37 @@ class TicTacToeTest {
         assertFalse(result);
     }
 
+    @Test
+    public void isDraw_Draw() {
+        Player player1 = new Player("Alice", 'X');
+        Player player2 = new Player("Bob", 'O');
+        TicTacToe game = new TicTacToe(player1, player2);
 
+        char[][] drawBoard = {
+                {'X', 'O', 'X'},
+                {'X', 'X', 'O'},
+                {'O', 'X', 'O'}
+        };
+
+        game.setBoard(drawBoard);
+        boolean result = game.isDraw(drawBoard);
+        assertTrue(result);
+    }
+
+    @Test
+    public void isDraw_NoDraw() {
+        Player player1 = new Player("Alice", 'X');
+        Player player2 = new Player("Bob", 'O');
+        TicTacToe game = new TicTacToe(player1, player2);
+
+        char[][] noDrawBoard = {
+                {'X', 'O', 'X'},
+                {' ', 'X', 'O'},
+                {'O', 'X', ' '}
+        };
+
+        game.setBoard(noDrawBoard);
+        boolean result = game.isDraw(noDrawBoard);
+        assertFalse(result);
+    }
 }
