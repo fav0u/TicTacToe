@@ -91,5 +91,37 @@ class TicTacToeTest {
         assertEquals(9, randomNr);
     }
 
+    @Test
+    public void isWin_Win() {
+        Player player1 = new Player("Alice", 'X');
+        Player player2 = new Player("Bob", 'O');
+        TicTacToe game = new TicTacToe(player1, player2);
+
+        char[][] winningBoard = {
+                {'X', 'X', 'X'},
+                {'O', ' ', ' '},
+                {' ', 'O', ' '}
+        };
+
+        boolean result = game.isWin(winningBoard, 'X');
+        assertTrue(result);
+    }
+
+    @Test
+    public void isWin_NoWin() {
+        Player player1 = new Player("Alice", 'X');
+        Player player2 = new Player("Bob", 'O');
+        TicTacToe game = new TicTacToe(player1, player2);
+
+        char[][] noWinningBoard = {
+                {'X', 'O', 'X'},
+                {'X', 'O', ' '},
+                {'O', 'X', ' '}
+        };
+
+        boolean result = game.isWin(noWinningBoard, 'X');
+        assertFalse(result);
+    }
+
 
 }
